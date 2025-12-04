@@ -1,6 +1,6 @@
 # Public Art Classifier 🖼️
-*"What art style is your city hiding?"*
-An AI that instantly classifies public art (murals, sculptures, graffiti) into 8 styles and finds the **top 3 visually similar pieces** across London & Berlin — in **38 ms**.
+*"What art style is your style?"*
+An AI that instantly classifies public art (murals, sculptures, graffiti) into 8 styles and finds the **top 3 visually similar pieces** in **38 ms**.
 
 ---
 

@@ -4,6 +4,22 @@ A 7-day ML project built on **80,000 public art images** to create an AI system 
 
 ---
 
+### Summary
+A 7-Day ML System for Art Style Classification, Aesthetic Fingerprinting & Similarity Search
+A production-grade ML project built in 7 days using 80,000 public-art images.
+This system classifies artwork styles, generates CLIP-based aesthetic fingerprints, retrieves similar artworks in under 50 ms, discovers latent micro-genres via clustering, and explains predictions with Grad-CAM — all wrapped in a fast Streamlit app.
+
+What it delivers (in one image upload):
+Predicted art style (supervised classifier, Azure Custom Vision)
+512-dim style fingerprint vector (CLIP embeddings)
+Top-3 similar artworks (FAISS/Qdrant search)
+Latent micro-genre cluster (unsupervised learning)
+Grad-CAM explanation heatmap
+
+Built with: Azure Custom Vision, PyTorch, CLIP, FAISS/Qdrant, scikit-learn, Streamlit
+
+---
+
 ## 🚀 What This System Does
 
 **1) Classifies artwork style (Azure Custom Vision)**

@@ -1,34 +1,67 @@
-# Public Art Classifier 🖼️
-*"What art style is your style?"*
-An AI that instantly classifies public art (murals, sculptures, graffiti) into 8 styles and finds the **top 3 visually similar pieces** in **38 ms**.
+# 🎨 Public Art Style Intelligence
+### *Classifier + Style Fingerprint Generator + Similarity Search + Clustering + Explainability*
+A 7-day ML project built on **80,000 public art images** to create an AI system that can **understand, classify, compare, and explain** visual art styles.
 
 ---
 
-### Project Goals 
-- Classify public art into **8 styles**: `Graffiti | Baroque | Brutalist | Surreal | Pop Art | Minimalist | Street Photography | Abstract Expressionism`
-- Find **top-3 visually similar artworks** using vector similarity (not just style)
-- Mobile-friendly + voice input ("find brutalist near me")
-- Accuracy: **94.2 %** on 1,000 unseen images
-- Deployed **free tier only** (£0/month)
-- Latency: **38 ms p95** (upload → result)
+## 🚀 What This System Does
+
+**1) Classifies artwork style (Azure Custom Vision)**
+* Trained on **80k images**, auto-tagged
+* Outputs **top-1 style** + confidence
+
+**2) Generates a unique “Style Fingerprint Vector” (CLIP Embeddings)**
+* 512-dim embedding per image
+* Captures aesthetic + composition + texture
+* Enables similarity + clustering
+
+**3) Returns Top-3 visually similar artworks (Vector Search)**
+* Qdrant/FAISS engine
+* **<50 ms** retrieval
+* Great for exploration + recommendation
+
+**4) Discovers hidden “Micro-Genres” (Unsupervised Clustering)**
+* KMeans/HDBSCAN on CLIP embeddings
+* Reveals **latent art communities** beyond labels
+
+**5) Explains predictions with Grad-CAM**
+* Heatmaps show which regions influenced the classifier
+* Adds transparency + interpretability
 
 ---
 
-### Tech Stack (Production-Ready)
-```text
-Python 3.11          │ Core language
-PyTorch + torchvision│ Transfer learning (ResNet50)
-CLIP (OpenAI)        │ Zero-shot embeddings
-Qdrant               │ Vector DB (self-hosted, £3/mo)
-Streamlit            │ Frontend + hosting (free)
-Whisper (OpenAI)     │ Voice commands
-Google Vision API    │ Auto-labeling during scraping
-Unsplash + Wikimedia │ 5,000 public domain images
-GitHub Actions       │ Auto-redeploy on push
-```
+## 🖥️ Streamlit App (End-to-End UI)
+Upload an image → AI returns:
+- Predicted style
+- Style fingerprint visual summary
+- Top-3 similar pieces
+- Micro-genre cluster ID
+- Grad-CAM explanation
+All in **~1.5 seconds** per query.
 
 ---
-### How it works 
-1. Upload → image resized to 224×224
-2. Style Classifier → ResNet50 (fine-tuned) → 94 % acc
-3. Similarity Search → CLIP embedding → Qdrant top-3 → 38 ms
+
+## 🧠 Tech Stack
+**Azure Custom Vision · CLIP · PyTorch · Qdrant/FAISS · Streamlit · Grad-CAM · sklearn (clustering)**
+
+---
+
+## 📊 Key Stats
+* **80,000+ images** processed
+* **512-dim aesthetic fingerprints**
+* **Top-3 similarity search in <50 ms**
+* **7-day build**
+* **100% reproducible pipeline**
+
+---
+
+## 📬 Contact
+
+If you want to discuss the project, reach out:
+
+**Pakhi Tyagi**
+GitHub: github.com/pakhi-1411-2002
+Email: [pakhi1411j@gmail.com](mailto:pakhi1411j@gmail.com)
+
+If you want, I can generate a **visuall
+y aesthetic version** with emojis, badges, or a more “research-paper” style version.

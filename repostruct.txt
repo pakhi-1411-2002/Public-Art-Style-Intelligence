@@ -1,0 +1,83 @@
+public-art-style-intelligence/
+│
+├── README.md
+├── requirements.txt
+├── .gitignore
+├── .env.example
+│
+├── data/
+│   ├── raw/                     # Original dataset (80k images)
+│   ├── processed/               # Cleaned/resized images
+│   ├── metadata.csv             # Image paths, labels, cluster ids
+│   ├── clusters/                # Cluster assignments, centroids
+│   └── samples/                 # Images for README/demo visuals
+│
+├── notebooks/
+│   ├── 01_data_exploration.ipynb
+│   ├── 02_embeddings_visualization.ipynb
+│   └── 03_cluster_analysis.ipynb
+│
+├── src/
+│   ├── azure/
+│   │   ├── upload_to_azure.py          # Upload dataset + create tags
+│   │   ├── azure_predict.py            # Classification via Azure endpoint
+│   │   └── azure_utils.py              # Helper functions
+│   │
+│   ├── preprocessing/
+│   │   ├── check_dataset.py            # Corrupt detection, stats
+│   │   ├── resize_images.py
+│   │   └── build_metadata.py
+│   │
+│   ├── embeddings/
+│   │   ├── generate_clip_embeddings.py # 512-d style fingerprints
+│   │   ├── build_vector_index.py       # FAISS/Qdrant index creation
+│   │   └── embed_utils.py
+│   │
+│   ├── clustering/
+│   │   ├── cluster_embeddings.py       # KMeans/HDBSCAN
+│   │   └── cluster_viz.py              # t-SNE, UMAP plots
+│   │
+│   ├── explainability/
+│   │   ├── gradcam.py
+│   │   └── explain_utils.py
+│   │
+│   ├── inference/
+│   │   ├── pipeline.py                 # Full inference (style + fingerprint + similar + gradcam)
+│   │   ├── similar_images.py
+│   │   ├── classifier.py
+│   │   └── load_resources.py
+│   │
+│   └── utils/
+│       ├── image_utils.py
+│       ├── plotting.py
+│       └── io_utils.py
+│
+├── models/
+│   ├── azure/                           # Exported ONNX/TensorFlow models
+│   └── clip/                            # CLIP model cache
+│
+├── vector_index/
+│   ├── faiss.index                      # Local FAISS index (if used)
+│   ├── qdrant/                          # Qdrant snapshots (optional)
+│   └── embeddings.npy                   # Stored fingerprints
+│
+├── app/
+│   ├── streamlit_app.py                 # Main UI
+│   └── components/
+│       ├── display_prediction.py
+│       ├── display_similar.py
+│       ├── display_gradcam.py
+│       └── layout.py
+│
+├── outputs/
+│   ├── metrics/                         # Training + eval metrics
+│   ├── gradcam/                         # Grad-CAM heatmaps
+│   ├── similarity_examples/             # Top-3 similar images
+│   ├── logs/                            # Upload logs, system logs
+│   └── figures/                         # Embedding plots, cluster visualizations
+│
+└── docs/
+    ├── architecture_diagram.md          # Contains ASCII or PNG diagram
+    ├── project_spec.md
+    ├── api_reference.md
+    └── dev_notes.md
